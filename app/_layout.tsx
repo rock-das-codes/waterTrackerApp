@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import "@/global.css";
+
 import { useFonts } from "expo-font";
 // import "react-native-url-polyfill/auto";
 import { SplashScreen, Stack } from "expo-router";
@@ -38,13 +40,9 @@ const RootLayout = () => {
   }
 
   return (
-    
-      <Stack>
-      
+    <Stack>
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        
       </Stack>
-
   );
 };
 

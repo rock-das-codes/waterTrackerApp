@@ -4,6 +4,7 @@ import { View, Text, Image, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import "../global.css";
 import { images } from "../constants";
+import WaterReminderApp from "@/components/main";
 // import { CustomButton, Loader } from "../components";
 // import { useGlobalContext } from "../context/GlobalProvider";
 
@@ -13,9 +14,9 @@ const Welcome = () => {
 //   if (!loading && isLogged) return <Redirect href="/home" />;
 
   return (
-    <SafeAreaView className="bg-primary h-full">
-      <Link href="./home"><Text className="bg-red-500 text-3xl">Home</Text></Link>
-    
+    <SafeAreaView className="bg-primary h-full flex items-center ">
+      
+    <WaterReminderApp/>
     </SafeAreaView>
   );
 };
