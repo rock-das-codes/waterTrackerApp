@@ -7,6 +7,13 @@ import { Canvas, Path } from "@shopify/react-native-skia";
 import Animated, { withRepeat,Easing } from 'react-native-reanimated';
 import { useSharedValue, useAnimatedStyle, withTiming ,useDerivedValue} from 'react-native-reanimated';
 //storage
+import * as Calendar from 'expo-calendar';
+
+
+
+
+
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import WaterIntakeModal from "./WaterModal";
 
@@ -31,7 +38,6 @@ const clearWaterIntake = async () => {
     console.log("Error clearing data", e);
   }
 };
-
 
 //main
 const WaterReminderApp = () => {
@@ -168,8 +174,23 @@ const HEIGHT = 200;
     
   }, [drinkRecords]);
 
-
+  useEffect(() => {
+    (async () => {
+      const { status } = await Calendar.requestCalendarPermissionsAsync();
+      if (status === 'granted') {
+        const calendars = await Calendar.getCalendarsAsync(Calendar.EntityTypes.EVENT);
+        console.log('Here are all your calendars:');
+        console.log(calenders.alarm())
+       
+      }
+    })();
+  }, []);
  
+  async function getDefaultCalendarSource() {
+    const defaultCalendar = await Calendar.getDefaultCalendarAsync();
+    return defaultCalendar.source;
+  }
+  
   return (
     <View className=" h-screen w-[80%] flex justify-center ">
 
